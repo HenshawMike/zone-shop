@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/auth/callback/route": "/auth/callback",
+  "/api/seed-products/route": "/api/seed-products",
+  "/about/page": "/about",
+  "/admin/seed-products/page": "/admin/seed-products",
+  "/admin/page": "/admin",
+  "/contact/page": "/contact",
+  "/forgot-password/page": "/forgot-password",
+  "/page": "/",
+  "/reset-password/page": "/reset-password",
+  "/profile/page": "/profile",
+  "/shop/page": "/shop",
+  "/signup/page": "/signup",
+  "/products/[id]/page": "/products/[id]",
+  "/login/page": "/login"
+}

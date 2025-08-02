@@ -1,0 +1,5 @@
+# Handle static files
+/images/* /_next/static/images/:splat 200
+
+# Handle all other routes
+/* /index.html 200
