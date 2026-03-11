@@ -46,8 +46,8 @@ export function EditProductDialog({ product }: { product: Product }) {
   const handleSubmit = async (formData: FormData) => {
     const imageFile = formData.get('image') as File
     if (imageFile && imageFile.size > 20 * 1024 * 1024) {
-        setError("File size must be less than 20MB.")
-        return
+      setError("File size must be less than 20MB.")
+      return
     }
 
     await updateProduct(product.id, formData)
@@ -58,59 +58,61 @@ export function EditProductDialog({ product }: { product: Product }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm" className="mr-2">Edit</Button>
+        <Button variant="outline" size="sm" className="rounded-none text-[10px] uppercase tracking-widest border-white text-white hover:bg-white hover:text-black transition-all">Edit</Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
-        <DialogHeader>
-          <DialogTitle>Edit Product</DialogTitle>
-          <DialogDescription>
-            Update the details of the product. Click save when you're done.
+      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg bg-black border-zinc-900 rounded-none p-12">
+        <DialogHeader className="mb-8">
+          <DialogTitle className="text-xl font-light uppercase tracking-widest text-white">Modify Entry</DialogTitle>
+          <DialogDescription className="text-xs text-zinc-500 uppercase tracking-tighter">
+            Update the specifications of this archive.
           </DialogDescription>
         </DialogHeader>
-        <form action={handleSubmit}>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 sm:items-center sm:gap-4">
-              <Label htmlFor="name" className="text-left sm:text-right">
+        <form action={handleSubmit} className="space-y-8">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
                 Name
               </Label>
-              <Input id="name" name="name" defaultValue={product.name} className="sm:col-span-3" required />
+              <Input id="name" name="name" defaultValue={product.name} className="bg-transparent border-zinc-800 rounded-none text-sm focus-visible:ring-0 focus-visible:border-white transition-colors h-12" required />
             </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 sm:items-center sm:gap-4">
-              <Label htmlFor="price" className="text-left sm:text-right">
-                Price
+            <div className="space-y-2">
+              <Label htmlFor="price" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                Price (₦)
               </Label>
-              <Input id="price" name="price" type="number" step="0.01" defaultValue={product.price} className="sm:col-span-3" required />
+              <Input id="price" name="price" type="number" step="1" defaultValue={product.price} className="bg-transparent border-zinc-800 rounded-none text-sm focus-visible:ring-0 focus-visible:border-white transition-colors h-12" required />
             </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 sm:items-center sm:gap-4">
-              <Label htmlFor="category" className="text-left sm:text-right">
+            <div className="space-y-2">
+              <Label htmlFor="category" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
                 Category
               </Label>
-              <Input id="category" name="category" defaultValue={product.category ?? ""} className="sm:col-span-3" />
+              <Input id="category" name="category" defaultValue={product.category ?? ""} className="bg-transparent border-zinc-800 rounded-none text-sm focus-visible:ring-0 focus-visible:border-white transition-colors h-12" />
             </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 sm:items-center sm:gap-4">
-              <Label htmlFor="description" className="text-left sm:text-right">
+            <div className="space-y-2">
+              <Label htmlFor="description" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
                 Description
               </Label>
-              <Textarea id="description" name="description" defaultValue={product.description ?? ""} className="sm:col-span-3" />
+              <Textarea id="description" name="description" defaultValue={product.description ?? ""} className="bg-transparent border-zinc-800 rounded-none text-sm focus-visible:ring-0 focus-visible:border-white transition-colors min-h-[100px] resize-none" />
             </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 sm:items-center sm:gap-4">
-              <Label htmlFor="image" className="text-left sm:text-right">
-                Image
+            <div className="space-y-2">
+              <Label htmlFor="image" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                Visual Update
               </Label>
-              <Input id="image" name="image" type="file" className="sm:col-span-3" accept="image/*" onChange={handleFileChange} />
+              <Input id="image" name="image" type="file" className="bg-transparent border-zinc-800 rounded-none text-sm h-12 file:bg-zinc-900 file:text-zinc-500 file:text-[10px] file:uppercase file:tracking-widest file:border-none file:h-full file:mr-4" accept="image/*" onChange={handleFileChange} />
             </div>
-            {error && <p className="col-span-4 text-red-500 text-sm text-center">{error}</p>}
+            {error && <p className="text-red-500 text-[10px] uppercase tracking-widest text-center">{error}</p>}
             {preview && (
-              <div className="col-span-4">
-                <Label className="text-center block mb-2">Image Preview</Label>
-                <div className="relative w-full h-48">
-                  <Image src={preview} alt="Image preview" layout="fill" objectFit="contain" />
+              <div className="pt-4 border-t border-zinc-900">
+                <p className="text-[8px] uppercase tracking-[0.3em] text-zinc-600 mb-4 text-center underline underline-offset-4">Reference Preview</p>
+                <div className="relative w-full aspect-square grayscale border border-zinc-900 shadow-2xl">
+                  <Image src={preview} alt="Image preview" layout="fill" objectFit="cover" />
                 </div>
               </div>
             )}
           </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
+          <DialogFooter className="pt-8">
+            <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200 rounded-none text-xs uppercase tracking-widest h-14 transition-all">
+              Update Record
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

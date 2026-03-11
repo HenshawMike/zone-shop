@@ -37,16 +37,16 @@ export function ProductCard({ product, isAdmin, profile }: ProductCardProps) {
   return (
     <div
       className={cn(
-        "group bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 transition-all hover:border-red-600/50",
+        "group bg-black rounded-none overflow-hidden border border-zinc-900 transition-all hover:border-white/20",
         !product.is_available && "opacity-50",
       )}
     >
       <Link href={`/products/${product.id}`} className="block relative aspect-square overflow-hidden">
         <Image
-          src={product.image 
-            ? (product.image.startsWith('http') || product.image.startsWith('/') 
-                ? product.image 
-                : `/${product.image}`)
+          src={product.image
+            ? (product.image.startsWith('http') || product.image.startsWith('/')
+              ? product.image
+              : `/${product.image}`)
             : '/placeholder.svg'}
           alt={product.name}
           fill
@@ -61,24 +61,23 @@ export function ProductCard({ product, isAdmin, profile }: ProductCardProps) {
         />
         {!product.is_available && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-            <span className="text-white font-bold text-lg bg-red-600 px-4 py-2 rounded">OUT OF STOCK</span>
+            <span className="text-white text-xs tracking-widest uppercase border border-white px-4 py-2">OUT OF STOCK</span>
           </div>
         )}
       </Link>
 
-      <div className="p-4">
-        <h3 className="text-lg font-semibold mb-1 group-hover:text-red-600 transition-colors">{product.name}</h3>
-        <p className="text-xl font-bold text-red-600 mb-4">₦{product.price.toLocaleString()}</p>
+      <div className="p-4 flex flex-col items-center text-center">
+        <h3 className="text-xs uppercase tracking-widest mb-2 transition-colors">{product.name}</h3>
+        <p className="text-sm font-light text-zinc-400 mb-4 tracking-tighter">₦{product.price.toLocaleString()}</p>
 
         {product.is_available ? (
           <Button
             onClick={handleAddToCart}
             disabled={isAdded}
+            variant="outline"
             className={cn(
-              "w-full transition-colors",
-              isAdded
-                ? "bg-green-600 hover:bg-green-700 text-white"
-                : "bg-red-600 hover:bg-red-700 text-white",
+              "w-full transition-colors rounded-none text-xs uppercase tracking-widest border-zinc-800 hover:bg-white hover:text-black",
+              isAdded && "bg-zinc-900 text-white border-zinc-800",
             )}
           >
             {isAdded ? (

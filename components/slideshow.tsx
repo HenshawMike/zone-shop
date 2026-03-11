@@ -30,8 +30,8 @@ export function Slideshow({ profile }: { profile: Profile | null }) {
       </div>
       <div className="absolute inset-0 bg-black/30 flex items-end justify-center pb-16">
         {!profile && (
-          <Button asChild>
-            <Link href="/signup">Sign Up</Link>
+          <Button asChild variant="outline" className="rounded-none text-xs uppercase tracking-[0.3em] border-white text-white hover:bg-white hover:text-black transition-all px-12 h-14">
+            <Link href="/signup">Join the Movement</Link>
           </Button>
         )}
       </div>

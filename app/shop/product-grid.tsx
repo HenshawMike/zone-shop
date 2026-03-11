@@ -29,10 +29,16 @@ export default function ProductGrid({ serverProducts, profile }: ProductGridProp
   useEffect(() => {
     const channel = supabase
       .channel("realtime products")
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "products" }, (payload) => {
-        setProducts((currentProducts) =>
-          currentProducts.map((product) => (product.id === payload.new.id ? (payload.new as Product) : product)),
-        )
+      .on("postgres_changes", { event: "*", schema: "public", table: "products" }, (payload) => {
+        if (payload.eventType === "INSERT") {
+          setProducts((current) => [...current, payload.new as Product])
+        } else if (payload.eventType === "UPDATE") {
+          setProducts((current) =>
+            current.map((product) => (product.id === payload.new.id ? (payload.new as Product) : product)),
+          )
+        } else if (payload.eventType === "DELETE") {
+          setProducts((current) => current.filter((product) => product.id !== payload.old.id))
+        }
       })
       .subscribe()
 
@@ -61,19 +67,19 @@ export default function ProductGrid({ serverProducts, profile }: ProductGridProp
 
   return (
     <div>
-      <div className="flex justify-center mb-8">
-        <div className="flex space-x-2 bg-zinc-900 p-1 rounded-full">
+      <div className="flex justify-center mb-16">
+        <div className="flex flex-wrap justify-center gap-6">
           {allCategories.map((category) => (
-            <Button
+            <button
               key={category}
-              variant={selectedCategory === category ? "default" : "ghost"}
-              className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                selectedCategory === category ? "bg-red-600 hover:bg-red-700 text-white" : "text-zinc-400 hover:text-white"
-              }`}
+              className={`text-xs uppercase tracking-[0.2em] transition-all pb-1 border-b-2 ${selectedCategory === category
+                ? "text-white border-white"
+                : "text-zinc-500 border-transparent hover:text-zinc-300"
+                }`}
               onClick={() => setSelectedCategory(category)}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </Button>
+              {category}
+            </button>
           ))}
         </div>
       </div>

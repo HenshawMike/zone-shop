@@ -4,67 +4,74 @@ import { Button } from "@/components/ui/button"
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold mb-8 text-red-600">About Zone</h1>
+    <div className="container mx-auto px-4 py-24">
+      <h1 className="text-3xl md:text-5xl font-light uppercase tracking-[0.3em] mb-16 text-center text-white">The Narrative</h1>
 
-      <div className="relative w-full h-[50vh] mb-12 rounded-lg overflow-hidden">
+      <div className="relative w-full h-[60vh] mb-24 overflow-hidden border border-zinc-900">
         <Image
           src="/images/zone-team.jpeg"
           alt="Zone fashion team"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000"
           sizes="100vw"
           priority
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Our Story</h2>
-          <p className="text-lg mb-6">
-            Zone is an Abuja-based streetwear fashion brand inspired by Nigerian youth culture. We deliver bold, modern
-            styles for those who lead, not follow.
-          </p>
-          <p className="text-lg mb-6">
-            Founded in 2023, our mission is to create authentic streetwear that represents the energy and creativity of
-            Nigeria's urban youth. Each piece in our collection is designed with attention to detail, quality materials,
-            and a distinctive style that sets you apart.
-          </p>
-          <p className="text-lg mb-6">
-            Born from the streets of Abuja, our collective represents the raw energy and creative rebellion of Nigeria's
-            urban youth. Each design tells a story of our journey.
-          </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start max-w-6xl mx-auto">
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Our Story</h2>
+            <div className="space-y-6 text-sm font-light leading-relaxed text-zinc-400 tracking-wide">
+              <p>
+                Zone is an Abuja-based streetwear fashion brand inspired by Nigerian youth culture. We deliver bold, modern
+                styles for those who lead, not follow.
+              </p>
+              <p>
+                Founded in 2023, our mission is to create authentic streetwear that represents the energy and creativity of
+                Nigeria's urban youth. Each piece in our collection is designed with attention to detail, quality materials,
+                and a distinctive style that sets you apart.
+              </p>
+              <p>
+                Born from the streets of Abuja, our collective represents the raw energy and creative rebellion of Nigeria's
+                urban youth. Each design tells a story of our journey.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
-          <p className="text-lg mb-6">
-            We're more than just a clothing brand – we're a movement that celebrates authenticity, self-expression, and
-            the vibrant spirit of Nigerian street culture.
-          </p>
-          <p className="text-lg mb-6">
-            Zone stands at the intersection of fashion, music, and art, creating a platform for young creatives to
-            express themselves through bold designs and unapologetic style.
-          </p>
-          <p className="text-lg mb-6">
-            Whether you're looking for statement pieces or everyday essentials with an edge, Zone offers clothing that
-            empowers you to express your unique identity.
-          </p>
-          <Link href="/shop">
-            <Button className="bg-red-600 hover:bg-red-700 text-white mt-4">Shop Our Collection</Button>
-          </Link>
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6">Our Vision</h2>
+            <div className="space-y-6 text-sm font-light leading-relaxed text-zinc-400 tracking-wide">
+              <p>
+                We're more than just a clothing brand – we're a movement that celebrates authenticity, self-expression, and
+                the vibrant spirit of Nigerian street culture.
+              </p>
+              <p>
+                Zone stands at the intersection of fashion, music, and art, creating a platform for young creatives to
+                express themselves through bold designs and unapologetic style.
+              </p>
+              <p>
+                Whether you're looking for statement pieces or everyday essentials with an edge, Zone offers clothing that
+                empowers you to express your unique identity.
+              </p>
+            </div>
+            <Link href="/shop" className="inline-block mt-12">
+              <Button variant="outline" className="rounded-none text-xs uppercase tracking-widest border-white text-white hover:bg-white hover:text-black px-12 h-12">Explore Collection</Button>
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="mt-16">
-        <h2 className="text-2xl font-bold mb-6">Join the Movement</h2>
-        <p className="text-lg mb-8 max-w-3xl">
+      <div className="mt-32 pt-24 border-t border-zinc-900 text-center max-w-2xl mx-auto">
+        <h2 className="text-2xl font-light uppercase tracking-widest mb-8 text-white">Join the Movement</h2>
+        <p className="text-sm font-light leading-relaxed mb-12 text-zinc-400 tracking-wide">
           Zone isn't just about what you wear – it's about being part of a community that pushes boundaries and
-          challenges the status quo. Follow us on social media to stay updated on our latest drops, events, and
-          collaborations.
+          challenges the status quo.
         </p>
         <Link href="/contact">
-          <Button className="bg-red-600 hover:bg-red-700 text-white">Connect With Us</Button>
+          <Button variant="outline" className="rounded-none text-xs uppercase tracking-widest border-zinc-800 text-white hover:bg-white hover:text-black px-12 h-12">Connect With Us</Button>
         </Link>
       </div>
     </div>

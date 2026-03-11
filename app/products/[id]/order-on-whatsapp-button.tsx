@@ -15,10 +15,11 @@ export function OrderOnWhatsAppButton({ product }: { product: Product }) {
   return (
     <Button
       onClick={handleOrder}
-      className="w-full bg-green-600 hover:bg-green-700 text-white"
+      variant="ghost"
+      className="w-full h-14 rounded-none text-xs uppercase tracking-widest text-zinc-500 hover:text-white hover:bg-zinc-900 transition-all duration-500 mt-4"
     >
-      <WhatsAppIcon className="mr-2 h-5 w-5" />
-      Order on WhatsApp
+      <WhatsAppIcon className="mr-2 h-3 w-3" />
+      Enquire via WhatsApp
     </Button>
   )
 }

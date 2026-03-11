@@ -4,41 +4,33 @@ import { Instagram, TwitterIcon as TikTok, MapPin, Mail, Phone } from "lucide-re
 
 export default function ContactCta() {
   return (
-    <section className="bg-zinc-900 py-16">
+    <section className="bg-black py-24 border-t border-zinc-900">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-red-600">Connect With Zone</h2>
-          <p className="text-lg mb-8 text-zinc-300">
-            Follow us on social media for the latest drops, styling tips, and behind-the-scenes content.
+        <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
+          <h2 className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] mb-8 text-white">Join the Zone</h2>
+          <p className="text-sm font-light leading-relaxed mb-12 text-zinc-400 tracking-wide">
+            Follow our journey for the latest drops, styling narratives, and the raw energy of Abuja streetwear.
           </p>
 
-          <div className="flex justify-center gap-6 mb-8">
-            <Link href="https://www.instagram.com/6ixsoldiers_?igsh=ZWVpbXU1emMxa3h6&utm_source=qr" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="rounded-full border-red-600 hover:bg-red-600/20">
-                <Instagram className="h-5 w-5 mr-2 text-red-600" />
-                Instagram
-              </Button>
+          <div className="flex justify-center gap-12 mb-16">
+            <Link href="https://www.instagram.com/6ixsoldiers_?igsh=ZWVpbXU1emMxa3h6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
+              <Instagram className="h-6 w-6 text-zinc-500 group-hover:text-white transition-colors" />
+              <span className="text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-white transition-colors">Instagram</span>
             </Link>
-            <Link href="https://www.tiktok.com/@zone.xix?_t=ZS-8xjE9kJlA2h&_r=1" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="rounded-full border-red-600 hover:bg-red-600/20">
-                <TikTok className="h-5 w-5 mr-2 text-red-600" />
-                TikTok
-              </Button>
+            <Link href="https://www.tiktok.com/@zone.xix?_t=ZS-8xjE9kJlA2h&_r=1" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
+              <TikTok className="h-6 w-6 text-zinc-500 group-hover:text-white transition-colors" />
+              <span className="text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-white transition-colors">TikTok</span>
             </Link>
           </div>
 
-          <div className="flex flex-col items-center space-y-2 text-zinc-400 mb-8">
+          <div className="flex flex-col items-center space-y-4 text-xs uppercase tracking-widest text-zinc-600 mb-16">
             <div className="flex items-center">
-              <MapPin className="h-5 w-5 mr-2 text-red-600" />
-              <span>Based in Abuja, Nigeria</span>
+              <MapPin className="h-3 w-3 mr-3" />
+              <span>Abuja, Nigeria</span>
             </div>
             <div className="flex items-center">
-              <Mail className="h-5 w-5 mr-2 text-red-600" />
+              <Mail className="h-3 w-3 mr-3" />
               <span>zonexix31@gmail.com</span>
-            </div>
-            <div className="flex items-center">
-              <Phone className="h-5 w-5 mr-2 text-red-600" />
-              <span>08167226602</span>
             </div>
           </div>
 
@@ -47,7 +39,7 @@ export default function ContactCta() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-green-600 hover:bg-green-700 text-white">Message Us on WhatsApp</Button>
+            <Button variant="outline" className="rounded-none text-xs uppercase tracking-widest border-zinc-800 text-white hover:bg-white hover:text-black h-12 px-12">Enquire via WhatsApp</Button>
           </Link>
         </div>
       </div>

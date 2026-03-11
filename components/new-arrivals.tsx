@@ -10,15 +10,15 @@ export default function NewArrivals({ allProducts, profile }: { allProducts: Pro
   const newArrivals = allProducts.sort((a, b) => b.id - a.id).slice(0, 4) // show 4 newest
 
   return (
-    <section className="container mx-auto px-4 py-12">
-      <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-red-600">New Arrivals</h2>
+    <section className="container mx-auto px-4 py-24 border-t border-zinc-900">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-16">
+        <h2 className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] text-white">New Arrivals</h2>
         <Link
           href="/shop"
-          className="group flex items-center text-zinc-400 hover:text-red-600 transition-colors mt-2 md:mt-0"
+          className="group flex items-center text-xs uppercase tracking-widest text-zinc-500 hover:text-white transition-colors mt-4 md:mt-0"
         >
-          View all products
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          Explore Collection
+          <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
 

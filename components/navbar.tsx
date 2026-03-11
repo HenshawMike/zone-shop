@@ -27,25 +27,25 @@ export default async function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
-            <div className="relative h-8 w-16">
-              <Image src="/images/zone-logo.jpeg" alt="ZONE" fill className="object-contain" />
+            <div className="relative h-12 w-32">
+              <Image src="/images/zone-logo-removebg-preview.png" alt="ZONE" fill className="object-contain brightness-0 invert" />
             </div>
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium transition-colors hover:text-red-600 text-zinc-400">
+            <Link href="/" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               Home
             </Link>
-            <Link href="/shop" className="text-sm font-medium transition-colors hover:text-red-600 text-zinc-400">
+            <Link href="/shop" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               Shop
             </Link>
-            <Link href="/about" className="text-sm font-medium transition-colors hover:text-red-600 text-zinc-400">
+            <Link href="/about" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               About
             </Link>
-            <Link href="/contact" className="text-sm font-medium transition-colors hover:text-red-600 text-zinc-400">
+            <Link href="/contact" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               Contact
             </Link>
             {profile?.role === "admin" && (
-              <Link href="/admin" className="text-sm font-medium transition-colors hover:text-red-600">
+              <Link href="/admin" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white">
                 Admin
               </Link>
             )}
@@ -64,7 +64,7 @@ export default async function Navbar() {
                   </Avatar>
                 </Link>
                 <form action={signOut}>
-                  <Button variant="destructive" className="text-sm">
+                  <Button variant="outline" className="rounded-none text-[10px] uppercase tracking-widest border-zinc-800 hover:bg-white hover:text-black transition-all h-9">
                     Logout
                   </Button>
                 </form>
@@ -72,12 +72,12 @@ export default async function Navbar() {
             ) : (
               <div className="flex items-center gap-2">
                 <Link href="/login">
-                  <Button variant="outline" className="text-sm bg-transparent">
+                  <Button variant="ghost" className="text-xs tracking-widest uppercase">
                     Login
                   </Button>
                 </Link>
                 <Link href="/signup">
-                  <Button className="bg-red-600 hover:bg-red-700 text-sm">Sign Up</Button>
+                  <Button variant="outline" className="text-xs tracking-widest uppercase border-zinc-700 hover:bg-white hover:text-black">Sign Up</Button>
                 </Link>
               </div>
             )}

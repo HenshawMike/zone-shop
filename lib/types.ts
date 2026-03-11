@@ -6,6 +6,7 @@ export interface Product {
   category: string | null
   description: string | null
   is_available: boolean
+  featured?: boolean
 }
 
 export interface Profile {

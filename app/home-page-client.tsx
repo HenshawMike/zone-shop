@@ -1,19 +1,13 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import NewArrivals from "@/components/new-arrivals"
 import FeaturedCollection from "@/components/featured-collection"
 import AboutPreview from "@/components/about-preview"
 import ContactCta from "@/components/contact-cta"
 import type { Product, Profile } from "@/lib/types"
 import { Slideshow } from "@/components/slideshow"
-
-import { Orbitron } from "next/font/google"
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-})
 
 const FADE_IN_ANIMATION_SETTINGS = {
   initial: { opacity: 0 },
@@ -23,13 +17,22 @@ const FADE_IN_ANIMATION_SETTINGS = {
 
 export default function HomePageClient({ products, profile }: { products: Product[]; profile: Profile | null }) {
   return (
-    <div className="flex flex-col gap-16 pb-16">
+    <div className="flex flex-col gap-24 pb-24">
       {profile && (
-        <motion.div {...FADE_IN_ANIMATION_SETTINGS} className="px-4 md:px-8 text-center">
+        <motion.div {...FADE_IN_ANIMATION_SETTINGS} className="px-4 md:px-8 text-center pt-12 flex flex-col items-center justify-center">
           <h1
-            className={`text-5xl font-bold tracking-tight text-white ${orbitron.className}`}
+            className="text-4xl md:text-6xl font-light tracking-[0.2em] text-white uppercase flex flex-col md:flex-row items-center justify-center gap-6"
           >
-            Welcome to <span className="text-red-500">ZONE</span>
+            Welcome to
+            <div className="relative h-16 w-48 md:h-24 md:w-72">
+              <Image
+                src="/images/zone-logo-removebg-preview.png"
+                alt="ZONE"
+                fill
+                className="object-contain brightness-0 invert"
+                priority
+              />
+            </div>
           </h1>
         </motion.div>
       )}

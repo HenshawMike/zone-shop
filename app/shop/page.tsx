@@ -14,8 +14,8 @@ export default async function ShopPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl md:text-5xl font-bold mb-8 text-red-600">Shop</h1>
+    <div className="container mx-auto px-4 py-24">
+      <h1 className="text-3xl md:text-5xl font-light uppercase tracking-[0.3em] mb-16 text-center text-white">The Collection</h1>
       <ProductGrid serverProducts={products ?? []} profile={profile} />
     </div>
   )
