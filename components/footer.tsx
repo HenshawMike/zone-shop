@@ -45,11 +45,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-xs uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-xs uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
                   Contact
                 </Link>

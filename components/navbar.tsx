@@ -38,9 +38,6 @@ export default async function Navbar() {
             <Link href="/shop" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               Shop
             </Link>
-            <Link href="/about" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
-              About
-            </Link>
             <Link href="/contact" className="text-xs tracking-widest uppercase font-medium transition-colors hover:text-white text-zinc-500">
               Contact
             </Link>
