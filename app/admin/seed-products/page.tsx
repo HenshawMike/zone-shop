@@ -15,15 +15,15 @@ export default function SeedProductsPage() {
           'Content-Type': 'application/json',
         },
       })
-      
+
       const data = await response.json()
       setResult(data)
-      
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to seed products')
       }
-      
-      console.log('Products seeded successfully:', data)
+
+      // Success feedback is handled by state
     } catch (error) {
       console.error('Error seeding products:', error)
       setResult({ error: error instanceof Error ? error.message : 'Unknown error occurred' })
@@ -35,7 +35,7 @@ export default function SeedProductsPage() {
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-2xl font-bold mb-6">Seed Products</h1>
-      
+
       <button
         onClick={handleSeedProducts}
         disabled={isLoading}

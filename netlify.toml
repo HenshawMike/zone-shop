@@ -1,14 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "pnpm run build"
   publish = ".next"
 
-[[redirects]]
-  from = "/images/*"
-  to = "/_next/static/images/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
