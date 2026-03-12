@@ -85,8 +85,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-zinc-800 mt-12 pt-8 text-center text-zinc-500 text-sm">
+        <div className="border-t border-zinc-900 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Zone Fashion. All rights reserved.</p>
+
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">Built by</span>
+            <Link
+              href="https://blimtechnologies.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-60 hover:opacity-100 transition-opacity grayscale-0"
+            >
+              <div className="relative h-10 w-40">
+                <Image
+                  src="/images/blim tech.png"
+                  alt="Blim Technologies"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
