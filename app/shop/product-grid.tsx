@@ -87,10 +87,14 @@ export default function ProductGrid({ serverProducts, profile }: ProductGridProp
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                className="flex flex-wrap justify-center gap-8"
             >
                 {filteredProducts.map((product) => (
-                    <motion.div key={product.id} variants={cardVariants}>
+                    <motion.div
+                        key={product.id}
+                        variants={cardVariants}
+                        className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] xl:w-[calc(25%-1.5rem)]"
+                    >
                         <ProductCard product={product} profile={profile} isAdmin={profile?.role === "admin"} />
                     </motion.div>
                 ))}
