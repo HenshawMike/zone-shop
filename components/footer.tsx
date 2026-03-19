@@ -14,8 +14,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-zinc-400 mb-4 max-w-md">
-              Zone is an Abuja-based streetwear fashion brand inspired by Nigerian youth culture. We deliver bold,
-              modern styles for those who lead, not follow.
+              Welcome to Zone.
             </p>
             <div className="flex items-center text-zinc-500 mb-2">
               <MapPin className="h-4 w-4 mr-2" />
