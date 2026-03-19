@@ -14,10 +14,10 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Zone | Nigerian Streetwear Fashion Brand",
+  title: "Zone",
   description:
-    "Zone is an Abuja-based streetwear fashion brand inspired by Nigerian youth culture. We deliver bold, modern styles for those who lead, not follow.",
-  generator: 'v0.dev'
+    "Zone",
+  
 }
 
 export default function RootLayout({
